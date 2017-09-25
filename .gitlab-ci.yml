@@ -1,0 +1,16 @@
+image: node:4.5.0
+
+stages:
+    - deploy
+
+before_script:
+    - apt-get update
+    - npm install -g node-google-apps-script
+
+deploy:apps:
+    stage: deploy
+    script:
+        - echo ${GAPPS_CONFIG} > $HOME/.gapps
+        - gapps upload
+    only:
+        - master
