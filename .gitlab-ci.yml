@@ -10,7 +10,8 @@ before_script:
 deploy:apps:
     stage: deploy
     script:
-        - echo ${GAPPS_CONFIG} > $HOME/.gapps
+        - echo $GAPPS_AUTH > $HOME/.gapps
+        - echo $GAPPS_CONFIG > gapps.config.json
         - gapps upload
     only:
         - master
