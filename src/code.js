@@ -4,4 +4,5 @@ function myFunction() {
   Logger.log('hogehoge');
 
   Logger.log('first deploy from GitlabCI');
+  Logger.log('first deploy from bitbucket pipelines');
 }
