@@ -5,4 +5,5 @@ function myFunction() {
 
   Logger.log('first deploy from GitlabCI');
   Logger.log('first deploy from bitbucket pipelines');
+  Logger.log('first deploy from CircleCI');
 }
