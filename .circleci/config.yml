@@ -1,29 +1,29 @@
 version: 2
 jobs:
   build:
-  docker:
-    - image: circleci/node:7.10.0
+    docker:
+     - image: circleci/node:7.10.0
 
-  steps:
-    - checkout
-    - run:
-      name: get package list
-      command: apt-get update
-    - run:
-      name: install gapps
-      command: npm install -g node-google-apps-script
-    - run:
-      name: create ".gapps"
-      command: echo ${GAPPS_AUTH} > ~/.gapps
-    - run:
-      name: create "gapps.config.json"
-      command: echo ${GAPPS_CONFIG} > gapps.config.json
-    - run: |
-      if [ -e gapps.config.json ]; then
-        echo "file found."
-      else
-        echo "file not found."
-      fi
-    - deploy:
-      name: deploy master to Google Apps Script
-      command: gapps upload
+    steps:
+      - checkout
+      - run:
+        name: get package list
+        command: apt-get update
+      - run:
+        name: install gapps
+        command: npm install -g node-google-apps-script
+      - run:
+        name: create ".gapps"
+        command: echo ${GAPPS_AUTH} > ~/.gapps
+      - run:
+        name: create "gapps.config.json"
+        command: echo ${GAPPS_CONFIG} > gapps.config.json
+      - run: |
+        if [ -e gapps.config.json ]; then
+          echo "file found."
+        else
+          echo "file not found."
+        fi
+      - deploy:
+        name: deploy master to Google Apps Script
+        command: gapps upload
