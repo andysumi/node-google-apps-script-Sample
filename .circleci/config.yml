@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: get package list
-          command: apt-get update
+          command: sudo apt-get update
       - run:
           name: install gapps
           command: npm install -g node-google-apps-script
