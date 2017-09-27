@@ -11,7 +11,7 @@ jobs:
           command: sudo apt-get update
       - run:
           name: install gapps
-          command: npm install -g node-google-apps-script
+          command: sudo npm install -g node-google-apps-script
       - run:
           name: create ".gapps"
           command: echo ${GAPPS_AUTH} > ~/.gapps
