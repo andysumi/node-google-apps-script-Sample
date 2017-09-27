@@ -7,17 +7,17 @@ jobs:
     steps:
       - checkout
       - run:
-        name: get package list
-        command: apt-get update
+          name: get package list
+          command: apt-get update
       - run:
-        name: install gapps
-        command: npm install -g node-google-apps-script
+          name: install gapps
+          command: npm install -g node-google-apps-script
       - run:
-        name: create ".gapps"
-        command: echo ${GAPPS_AUTH} > ~/.gapps
+          name: create ".gapps"
+          command: echo ${GAPPS_AUTH} > ~/.gapps
       - run:
-        name: create "gapps.config.json"
-        command: echo ${GAPPS_CONFIG} > gapps.config.json
+          name: create "gapps.config.json"
+          command: echo ${GAPPS_CONFIG} > gapps.config.json
       - deploy:
-        name: deploy master to Google Apps Script
-        command: gapps upload
+          name: deploy master to Google Apps Script
+          command: gapps upload
